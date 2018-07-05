@@ -1,0 +1,9 @@
+<resources>
+
+    <dimen name="ContentPaddingTop">25dp</dimen>
+    <dimen name="ToolbarHeight">75dp</dimen>
+    <style name="Theme.Translucent.System.Bar" parent="BaseAppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+</resources>

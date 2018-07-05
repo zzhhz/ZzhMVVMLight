@@ -1,0 +1,17 @@
+<resources>
+    <!--封装的toolbar 里面距离上内边距的距离。-->
+    <dimen name="ContentPaddingTop">25dp</dimen>
+    <!-- toolbar 封装的高度-->
+    <dimen name="ToolbarHeight">75dp</dimen>
+
+    <style name="Theme.Translucent.System.Bar" parent="BaseAppTheme">
+        <!--状态栏透明，false:状态栏透明； true:状态栏会有一层半透明的阴影遮盖-->
+        <item name="android:windowTranslucentStatus">false</item>
+        <!--Navigation 是否-->
+        <item name="android:windowTranslucentNavigation">true</item>
+        <!--Android 5.x开始需要把颜色设置透明，否则导航栏会呈现系统默认的浅灰色-->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>
