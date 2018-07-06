@@ -4,12 +4,13 @@ import android.os.Message;
 import android.view.View;
 
 import com.zzh.mvvm.R;
+import com.zzh.mvvm.base.BaseFragment;
 import com.zzh.mvvm.base.ZBaseFragment;
 
 /**
  *
  */
-public class FriendsFragment extends ZBaseFragment {
+public class FriendsFragment extends BaseFragment {
     @Override
     protected int setLayoutResId() {
         return R.layout.fragment_friends;

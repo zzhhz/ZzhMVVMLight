@@ -4,12 +4,13 @@ import android.os.Message;
 import android.view.View;
 
 import com.zzh.mvvm.R;
-import com.zzh.mvvm.base.ZBaseFragment;
+import com.zzh.mvvm.base.BaseFragment;
+import com.zzh.mvvm.databinding.FragmentFriendsBinding;
 
 /**
  *
  */
-public class NetMusicFragment extends ZBaseFragment {
+public class NetMusicFragment extends BaseFragment<FragmentFriendsBinding> {
     @Override
     protected int setLayoutResId() {
         return R.layout.fragment_music_net;
@@ -17,6 +18,8 @@ public class NetMusicFragment extends ZBaseFragment {
 
     @Override
     protected void initViewAndData(View fragment) {
+
+
 
     }
 

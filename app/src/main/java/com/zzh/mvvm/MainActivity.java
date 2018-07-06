@@ -38,7 +38,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
         MainTabAdapter mainTabAdapter = new MainTabAdapter(getSupportFragmentManager(), list);
         mBindView.include.viewPager.setAdapter(mainTabAdapter);
         mBindView.include.setViewModel(new MainViewModel(this));
-        bindSelect(0);
+        bindSelect(1);
+        mBindView.include.viewPager.setCurrentItem(1);
     }
 
     @Override
