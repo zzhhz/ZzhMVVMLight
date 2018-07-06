@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.zzh.mvvm.ui.main.presenter.MainViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,24 +44,34 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/iv_local_music"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/titlebar_friends_normal" />
+                        android:onClick="@{(v) -> viewModel.onClickView(v, 0)}"
+                        android:src="@mipmap/titlebar_music_normal" />
 
                     <ImageView
+                        android:id="@+id/iv_net_music"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="@{(v) -> viewModel.onClickView(v, 1)}"
                         android:src="@mipmap/titlebar_discover_normal" />
 
                     <ImageView
+                        android:id="@+id/iv_friends"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/titlebar_music_normal" />
-
+                        android:onClick="@{(v) -> viewModel.onClickView(v, 2)}"
+                        android:src="@mipmap/titlebar_friends_normal" />
                 </LinearLayout>
             </RelativeLayout>
 
         </android.support.v7.widget.Toolbar>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 </layout>

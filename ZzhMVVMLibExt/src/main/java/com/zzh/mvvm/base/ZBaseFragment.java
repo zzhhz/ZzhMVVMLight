@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,15 +30,17 @@ import android.view.ViewGroup;
  * @Author: zzh
  * @Description: 封装基本的工具
  */
-public abstract class ZBaseFragment extends Fragment {
-    protected BaseHandler mHandler;
-    protected Context mContext;
-    protected static String TAG;
-    protected View mContainer;
+public abstract class ZBaseFragment<SV extends ViewDataBinding> extends Fragment {
     /**
      * 访问读写权限
      */
     protected static final int WRITE_EXTERNAL_STORAGE = 10001;
+
+    protected BaseHandler mHandler;
+    protected Context mContext;
+    protected static String TAG;
+    protected View mContainer;
+    protected SV mBindView;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,15 +55,15 @@ public abstract class ZBaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         int contentId = setLayoutResId();
         if (mContainer == null) {
-            mContainer = inflater.inflate(contentId, null);
+            mBindView = DataBindingUtil.inflate(inflater, contentId, container, false);
+            mContainer = mBindView.getRoot();
             init(mContainer);
         }
         return mContainer;
     }
 
     public void init(View view) {
-        initView(view);
-        initData();
+        initViewAndData(view);
         setViewListener();
     }
 
@@ -73,12 +77,7 @@ public abstract class ZBaseFragment extends Fragment {
     /**
      * @param fragment
      */
-    protected abstract void initView(View fragment);
-
-    /**
-     *
-     */
-    protected abstract void initData();
+    protected abstract void initViewAndData(View fragment);
 
     /**
      *
@@ -117,13 +116,10 @@ public abstract class ZBaseFragment extends Fragment {
                     //弹窗设置
                     new AlertDialog.Builder(getActivity())
                             .setMessage("app需要开启权限才能使用此功能")
-                            .setPositiveButton("设置", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                                    intent.setData(Uri.parse("package:" + getActivity().getPackageName()));
-                                    getActivity().startActivity(intent);
-                                }
+                            .setPositiveButton("设置", (dialogInterface, i) -> {
+                                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                intent.setData(Uri.parse("package:" + getActivity().getPackageName()));
+                                getActivity().startActivity(intent);
                             })
                             .setNegativeButton("取消", null)
                             .create()

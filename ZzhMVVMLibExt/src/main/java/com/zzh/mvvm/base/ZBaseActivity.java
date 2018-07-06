@@ -2,7 +2,6 @@ package com.zzh.mvvm.base;
 
 import android.Manifest;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -34,7 +33,7 @@ public abstract class ZBaseActivity<SV extends ViewDataBinding> extends SwipeBac
     protected Context mContext;
     protected BaseHandler mHandler;
     protected Toast mToast;
-    protected SV mBindView;
+    public SV mBindView;
     /**
      * 权限
      */
@@ -43,7 +42,7 @@ public abstract class ZBaseActivity<SV extends ViewDataBinding> extends SwipeBac
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TAG = this.getLocalClassName();
+        TAG = this.getClass().getName();
         mContext = this;
         if (mHandler == null) {
             mHandler = new BaseHandler();

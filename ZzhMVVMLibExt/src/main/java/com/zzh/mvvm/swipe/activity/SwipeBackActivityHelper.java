@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.zzh.mvvm.ext.R;
 import com.zzh.mvvm.swipe.SwipeBackLayout;
 import com.zzh.mvvm.swipe.Utils;
 
@@ -31,7 +32,7 @@ public class SwipeBackActivityHelper {
         mActivity.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         mActivity.getWindow().getDecorView().setBackgroundDrawable(null);
         mSwipeBackLayout = (SwipeBackLayout) LayoutInflater.from(mActivity).inflate(
-                com.zzh.mvvm.ext.R.layout.swipeback_layout, null);
+                R.layout.swipeback_layout, null);
         mSwipeBackLayout.addSwipeListener(new SwipeBackLayout.SwipeListener() {
             @Override
             public void onScrollStateChange(int state, float scrollPercent) {
