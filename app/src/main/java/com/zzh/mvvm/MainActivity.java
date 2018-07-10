@@ -7,7 +7,7 @@ import android.view.Gravity;
 import android.view.View;
 
 import com.zzh.mvvm.base.BaseActivity;
-import com.zzh.mvvm.base.ZBaseFragment;
+import com.zzh.mvvm.base.BaseFragment;
 import com.zzh.mvvm.databinding.ActivityMainBinding;
 import com.zzh.mvvm.databinding.NavHeaderViewBinding;
 import com.zzh.mvvm.ui.main.adapter.MainTabAdapter;
@@ -31,7 +31,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
     @Override
     protected void initViewAndData() {
         initDrawLayout();
-        List<ZBaseFragment> list = new ArrayList<>();
+        List<BaseFragment> list = new ArrayList<>();
         list.add(new LocalMusicFragment());
         list.add(new NetMusicFragment());
         list.add(new FriendsFragment());

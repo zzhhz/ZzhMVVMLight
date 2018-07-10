@@ -10,7 +10,7 @@ import com.zzh.mvvm.databinding.FragmentFriendsBinding;
 /**
  *
  */
-public class NetMusicFragment extends BaseFragment<FragmentFriendsBinding> {
+public class NetMusicFragment<FragmentMusicNetBinding> extends BaseFragment<FragmentFriendsBinding> {
     @Override
     protected int setLayoutResId() {
         return R.layout.fragment_music_net;
@@ -18,7 +18,6 @@ public class NetMusicFragment extends BaseFragment<FragmentFriendsBinding> {
 
     @Override
     protected void initViewAndData(View fragment) {
-
 
 
     }

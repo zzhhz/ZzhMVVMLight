@@ -4,14 +4,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.zzh.mvvm.base.BaseFragment;
 import com.zzh.mvvm.base.ZBaseFragment;
 
 import java.util.List;
 
 public class MainTabAdapter extends FragmentPagerAdapter {
-    private List<ZBaseFragment> list;
+    private List<BaseFragment> list;
 
-    public MainTabAdapter(FragmentManager fm, List<ZBaseFragment> list) {
+    public MainTabAdapter(FragmentManager fm, List<BaseFragment> list) {
         super(fm);
         this.list = list;
     }
